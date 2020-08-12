@@ -1,0 +1,28 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="ivan.honcharenko">
+        <createTable tableName="counter_request_info">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"
+                             primaryKeyName="PK_COUNTER"/>
+            </column>
+            <column name="producer_count" type="INTEGER" />
+            <column name="consumer_count" type="INTEGER" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="ivan.honcharenko">
+        <createTable tableName="counter_result">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"
+                             primaryKeyName="PK_COUNTER_CALCULATED"/>
+            </column>
+            <column name="timestamp" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP" />
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
